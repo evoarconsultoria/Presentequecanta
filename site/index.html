@@ -197,6 +197,14 @@ textarea{min-height:200px;resize:vertical}
   </div>
 </section>
 
+<section id="amigosecreto">
+  <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto;padding:0 20px">
+  <h2>🎅 Tirou alguém no amigo secreto?</h2>
+  <p style="font-size:19px;margin-bottom:10px">Revele seu amigo secreto com uma música zoando ele. As manias, os apelidos, aquela história que todo mundo lembra, tudo no refrão. A galera vai rir até chorar.</p>
+  <p style="color:var(--cinza);margin-bottom:22px">Zoeira do bem: sem ofensa, sem exposição. Só risada. Mesmo preço: R$ 47, pronta em até 3 horas.</p>
+  <button class="btn" onclick="pedirZoeira()">Quero revelar com música 😂</button>
+  </div>
+</section>
 <section class="cta-final">
   <div class="wrap">
     <h2>Faça alguém chorar de alegria neste Natal</h2>
@@ -241,7 +249,7 @@ textarea{min-height:200px;resize:vertical}
         <button class="opcao"><span class="emo">👩</span>Mãe</button><button class="opcao"><span class="emo">👨</span>Pai</button>
         <button class="opcao"><span class="emo">💑</span>Esposa</button><button class="opcao"><span class="emo">💍</span>Marido</button>
         <button class="opcao"><span class="emo">❤️</span>Namorado(a)</button><button class="opcao"><span class="emo">👵</span>Avó / Avô</button>
-        <button class="opcao"><span class="emo">👧</span>Filho(a)</button><button class="opcao"><span class="emo">🤝</span>Amigo(a)</button>
+        <button class="opcao"><span class="emo">👧</span>Filho(a)</button><button class="opcao"><span class="emo">🤝</span>Amigo(a)</button><button class="opcao"><span class="emo">💼</span>Colega de trabalho</button>
         <button class="opcao"><span class="emo">👫</span>Irmão / Irmã</button><button class="opcao"><span class="emo">✨</span>Outro</button>
       </div>
       <p class="erro" id="erro2">Escolha uma opção.</p>
@@ -252,7 +260,8 @@ textarea{min-height:200px;resize:vertical}
       <h2>Qual a ocasião?</h2>
       <p class="dica">Toque em uma opção.</p>
       <div class="opcoes" data-campo="ocasiao">
-        <button class="opcao"><span class="emo">🎄</span>Natal</button><button class="opcao"><span class="emo">🎂</span>Aniversário</button>
+        <button class="opcao"><span class="emo">🎄</span>Natal</button><button class="opcao"><span class="emo">🎅</span>Amigo secreto (zoeira)</button>
+        <button class="opcao"><span class="emo">🎂</span>Aniversário</button>
         <button class="opcao"><span class="emo">💍</span>Casamento / Bodas</button><button class="opcao"><span class="emo">❤️</span>Declaração de amor</button>
         <button class="opcao"><span class="emo">🙏</span>Homenagem</button><button class="opcao"><span class="emo">🎁</span>Só porque sim</button>
       </div>
@@ -267,7 +276,7 @@ textarea{min-height:200px;resize:vertical}
         <button class="opcao"><span class="emo">🤠</span>Sertanejo</button><button class="opcao"><span class="emo">🪗</span>Forró</button>
         <button class="opcao"><span class="emo">🙏</span>Gospel</button><button class="opcao"><span class="emo">🎸</span>MPB</button>
         <button class="opcao"><span class="emo">🥁</span>Pagode</button><button class="opcao"><span class="emo">🌹</span>Romântica</button>
-        <button class="opcao"><span class="emo">🌴</span>Brega / Arrocha</button><button class="opcao"><span class="emo">🧸</span>Infantil</button>
+        <button class="opcao"><span class="emo">🌴</span>Brega / Arrocha</button><button class="opcao"><span class="emo">🧸</span>Infantil</button><button class="opcao"><span class="emo">😂</span>Zoeira / Humor</button>
       </div>
       <label class="campo">Voz de quem canta</label>
       <div class="opcoes" data-campo="voz" data-multi="nao-avanca">
@@ -570,6 +579,19 @@ async function copiarPix(){
   try { await navigator.clipboard.writeText(t.value); } catch(e){ t.select(); document.execCommand("copy"); }
   document.getElementById("copiado").style.display = "block";
 }
+
+function pedirZoeira(){
+  abrirPedido();
+  const b=[...document.querySelectorAll('[data-campo="ocasiao"] .opcao')].find(x=>x.dataset.v.startsWith("Amigo secreto"));
+  if(b){ b.parentElement.querySelectorAll(".opcao").forEach(x=>x.classList.remove("sel")); b.classList.add("sel"); dados.ocasiao=b.dataset.v; }
+}
+if (location.hash === "#amigosecreto" || /zoeira|amigo/i.test(location.search)) setTimeout(pedirZoeira, 400);
+// história adapta ao modo zoeira
+document.addEventListener("click", () => {
+  const z = (dados.ocasiao||"").startsWith("Amigo secreto") || dados.estilo === "Zoeira / Humor";
+  const t = document.getElementById("historia");
+  t.placeholder = z ? "Ex.: O Marcão é do financeiro, chega atrasado todo dia dizendo que foi o trânsito, come a marmita dos outros e jura que é Flamengo raiz mas nunca foi ao Maracanã..." : "Ex.: Minha mãe criou 4 filhos sozinha, sempre com um sorriso. Faz o melhor bolo de fubá do mundo e canta na cozinha. Lembro dela me levando na escola de bicicleta...";
+});
 </script>
 </body>
 </html>
