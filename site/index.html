@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presente que Canta · Música personalizada com o nome de quem você ama</title>
+<meta name="description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 47 no Pix.">
+<meta property="og:title" content="Presente que Canta 🎁🎶">
+<meta property="og:description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 47 no Pix.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<style>
+:root{
+  --vinho:#6B1E3A; --vinho2:#521329; --ouro:#E3A83B; --ouro2:#C98A1E;
+  --creme:#FFF4E6; --creme2:#FBE9D2; --texto:#2B1A20; --cinza:#6E5B62; --verde:#1F9D55;
+  --raio:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,system-ui,sans-serif;font-size:18px;line-height:1.55;color:var(--texto);background:var(--creme)}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.2;color:var(--vinho)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:20px;padding:18px 28px;border-radius:999px;
+  background:var(--ouro);color:var(--vinho2);text-decoration:none;box-shadow:0 6px 0 var(--ouro2);transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 var(--ouro2)}
+.btn.full{width:100%}
+.btn.sec{background:#fff;color:var(--vinho);box-shadow:0 4px 0 #e5d3bd;border:2px solid #ead8c2}
+.btn.verde{background:var(--verde);color:#fff;box-shadow:0 6px 0 #14713c}
+.btn:disabled{opacity:.6;cursor:wait}
+
+/* HERO */
+.hero{background:var(--vinho);color:var(--creme);padding:28px 0 56px;text-align:center;position:relative;overflow:hidden}
+.hero .marca{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:34px}
+.hero .marca span{font-family:Lora,serif;font-weight:700;font-size:22px}
+.hero .marca em{font-family:Lora,serif;color:var(--ouro);font-size:22px}
+.hero h1{color:var(--creme);font-size:clamp(32px,7vw,48px);margin-bottom:18px}
+.hero h1 em{color:var(--ouro);font-style:italic}
+.hero p.sub{font-size:20px;opacity:.92;margin-bottom:28px}
+.selos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:30px}
+.selo{background:rgba(255,244,230,.12);border:1px solid rgba(255,244,230,.25);padding:8px 16px;border-radius:999px;font-size:16px;font-weight:600}
+.hero .preco{margin-top:16px;font-size:16px;opacity:.85}
+.hero .preco s{opacity:.7}
+
+section{padding:56px 0}
+section h2{font-size:clamp(26px,5vw,34px);text-align:center;margin-bottom:28px}
+.passos{display:grid;gap:16px}
+.passo{background:#fff;border-radius:var(--raio);padding:22px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 2px 0 #ecdcc8}
+.passo b.n{flex:0 0 46px;height:46px;border-radius:50%;background:var(--vinho);color:var(--ouro);display:grid;place-items:center;font-family:Lora;font-size:22px}
+.passo h3{font-size:21px;margin-bottom:4px}
+.passo p{color:var(--cinza)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{background:#fff;border:2px solid #ecdcc8;border-radius:999px;padding:10px 18px;font-weight:600;color:var(--vinho)}
+.faixa{background:var(--creme2)}
+.amostra{background:#fff;border-radius:var(--raio);padding:22px;text-align:center}
+.amostra audio{width:100%;margin-top:12px}
+.garantia{background:var(--vinho);color:var(--creme);border-radius:var(--raio);padding:28px;text-align:center}
+.garantia h3{color:var(--ouro);font-size:24px;margin-bottom:8px}
+details{background:#fff;border-radius:14px;margin-bottom:12px;padding:18px 20px;box-shadow:0 2px 0 #ecdcc8}
+summary{font-weight:700;cursor:pointer;color:var(--vinho);list-style:none}
+summary::after{content:" +";color:var(--ouro2)}
+details[open] summary::after{content:" –"}
+details p{margin-top:10px;color:var(--cinza)}
+.cta-final{text-align:center}
+footer{background:var(--vinho2);color:var(--creme);text-align:center;padding:28px 20px 100px;font-size:15px;opacity:.95}
+footer a{color:var(--ouro)}
+
+/* WHATS FLUTUANTE */
+.zap{position:fixed;right:16px;bottom:16px;z-index:50;background:var(--verde);color:#fff;border-radius:999px;
+  padding:14px 18px;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+
+/* PEDIDO (overlay) */
+#pedido{position:fixed;inset:0;background:var(--creme);z-index:100;display:none;overflow-y:auto}
+#pedido.aberto{display:block}
+.topo{position:sticky;top:0;background:var(--vinho);color:var(--creme);padding:14px 20px;display:flex;align-items:center;gap:14px;z-index:2}
+.topo button{background:none;border:0;color:var(--creme);font-size:28px;cursor:pointer;line-height:1}
+.barra{flex:1;height:10px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--ouro);width:0;transition:width .3s}
+.topo small{font-weight:600;font-size:14px;white-space:nowrap}
+.etapa{display:none;padding:30px 0 40px}
+.etapa.ativa{display:block;animation:entra .25s ease}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.etapa h2{text-align:left;font-size:28px;margin-bottom:8px}
+.etapa .dica{color:var(--cinza);margin-bottom:22px}
+label.campo{display:block;font-weight:700;margin:18px 0 8px;color:var(--vinho)}
+input[type=text],input[type=tel],textarea{width:100%;font:inherit;font-size:20px;padding:16px 18px;border:2px solid #e2cdb3;border-radius:14px;background:#fff;color:var(--texto)}
+input:focus,textarea:focus{outline:none;border-color:var(--ouro2);box-shadow:0 0 0 4px rgba(227,168,59,.25)}
+textarea{min-height:200px;resize:vertical}
+.opcoes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opcao{background:#fff;border:2px solid #e2cdb3;border-radius:14px;padding:18px 12px;font:inherit;font-weight:700;font-size:18px;color:var(--vinho);cursor:pointer;text-align:center}
+.opcao.sel{background:var(--vinho);color:var(--creme);border-color:var(--vinho)}
+.opcao .emo{display:block;font-size:28px;margin-bottom:4px}
+.acoes{display:flex;gap:12px;margin-top:30px}
+.acoes .btn{flex:1}
+.erro{color:#B3261E;font-weight:600;margin-top:12px;display:none}
+.resumo{background:#fff;border-radius:var(--raio);padding:20px;margin-bottom:10px}
+.resumo div{padding:8px 0;border-bottom:1px solid #f1e4d4}
+.resumo div:last-child{border:0}
+.resumo b{color:var(--vinho);display:block;font-size:15px}
+.total{display:flex;justify-content:space-between;align-items:center;background:var(--vinho);color:var(--creme);border-radius:14px;padding:16px 20px;font-weight:700;font-size:20px;margin-top:14px}
+.total span:last-child{color:var(--ouro);font-size:26px}
+.pix{text-align:center}
+.pix .codigo{display:inline-block;background:var(--vinho);color:var(--ouro);padding:6px 14px;border-radius:8px;font-weight:700;letter-spacing:1px;margin:6px 0 18px}
+#qrcode{background:#fff;padding:16px;border-radius:var(--raio);display:inline-block;margin:10px 0 18px}
+#qrcode img,#qrcode canvas{display:block;margin:0 auto}
+.copia{width:100%;font-size:13px !important;word-break:break-all;min-height:90px !important;margin-bottom:12px}
+.passos-pix{text-align:left;background:#fff;border-radius:var(--raio);padding:18px 22px;margin:20px 0}
+.passos-pix li{margin:6px 0 6px 20px}
+.ok{color:var(--verde);font-weight:700;display:none;margin-bottom:10px}
+.aguarda{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;border-radius:14px;padding:14px;margin:18px 0;font-weight:700;color:var(--vinho)}
+.spin{width:20px;height:20px;border:3px solid #ecdcc8;border-top-color:var(--ouro2);border-radius:50%;animation:gira 1s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.sucesso{text-align:center;padding-top:40px}
+.sucesso .big{font-size:72px;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<!-- ============ LANDING ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="marca">
+      <svg width="40" height="40" viewBox="0 -50 400 450" aria-hidden="true">
+        <rect x="40" y="200" width="320" height="190" rx="22" fill="#FFF4E6"/><rect x="20" y="150" width="360" height="70" rx="18" fill="#FFF4E6"/>
+        <rect x="178" y="150" width="44" height="240" fill="#E3A83B"/>
+        <ellipse cx="130" cy="118" rx="40" ry="28" transform="rotate(-22 130 118)" fill="#E3A83B"/><ellipse cx="274" cy="96" rx="40" ry="28" transform="rotate(-22 274 96)" fill="#E3A83B"/>
+        <rect x="154" y="0" width="14" height="112" fill="#E3A83B"/><rect x="298" y="-22" width="14" height="112" fill="#E3A83B"/><polygon points="154,-20 312,-42 312,-6 154,16" fill="#E3A83B"/>
+      </svg>
+      <span>Presente</span><em>que Canta</em>
+    </div>
+    <h1>Uma música com o <em>nome</em> e a <em>história</em> de quem você ama</h1>
+    <p class="sub">O presente de Natal que emociona de verdade. Você conta a história, a gente transforma em canção.</p>
+    <div class="selos">
+      <span class="selo">⏱️ Pronta em até 3 horas</span>
+      <span class="selo">📲 Entrega no WhatsApp</span>
+      <span class="selo">💛 Com o nome da pessoa</span>
+    </div>
+    <button class="btn" onclick="abrirPedido()">🎁 Quero a minha música</button>
+    <p class="preco">De <s>R$ 147</s> por apenas <b>R$ 47 no Pix</b> · preço de Natal</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Como funciona</h2>
+    <div class="passos">
+      <div class="passo"><b class="n">1</b><div><h3>Conte a história</h3><p>Diga o nome da pessoa, o estilo de música que ela gosta e algumas lembranças marcantes. Leva 3 minutinhos.</p></div></div>
+      <div class="passo"><b class="n">2</b><div><h3>Pague no Pix</h3><p>R$ 47, direto pelo app do seu banco. Rápido e seguro.</p></div></div>
+      <div class="passo"><b class="n">3</b><div><h3>Receba no WhatsApp</h3><p>Em até 3 horas a música chega pronta no seu WhatsApp, para você mostrar, enviar ou tocar na hora do presente.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="wrap">
+    <h2>Para quem você vai dar?</h2>
+    <div class="chips">
+      <span class="chip">👩 Mãe</span><span class="chip">👨 Pai</span><span class="chip">👵 Avó</span><span class="chip">👴 Avô</span>
+      <span class="chip">💑 Esposa</span><span class="chip">💍 Marido</span><span class="chip">❤️ Namorado(a)</span>
+      <span class="chip">👧 Filhos</span><span class="chip">🤝 Amigos</span><span class="chip">🙏 Pastor(a)</span>
+    </div>
+    <p style="text-align:center;margin-top:22px;color:var(--cinza)">Sertanejo, forró, gospel, MPB, pagode, romântica… <b>você escolhe o estilo.</b></p>
+  </div>
+</section>
+
+<section id="secAmostra" style="display:none">
+  <div class="wrap">
+    <h2>Ouça um exemplo</h2>
+    <div class="amostra">
+      <p id="amostraTitulo"></p>
+      <audio id="amostraAudio" controls preload="none"></audio>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="garantia">
+      <h3>💛 Seu presente do jeito que você imaginou</h3>
+      <p>Se algum detalhe da letra não ficar do seu jeito, a gente ajusta sem custo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="wrap">
+    <h2>Dúvidas frequentes</h2>
+    <details><summary>Como eu recebo a música?</summary><p>No WhatsApp que você informar no pedido. Você recebe o áudio pronto para ouvir, baixar e compartilhar.</p></details>
+    <details><summary>Em quanto tempo fica pronta?</summary><p>Em até 3 horas para pedidos pagos entre 8h e 21h. Pedidos feitos à noite ficam prontos até as 11h da manhã seguinte.</p></details>
+    <details><summary>O nome da pessoa aparece na música?</summary><p>Sim! O nome é cantado no refrão. Se o nome tiver uma pronúncia diferente, é só explicar no pedido.</p></details>
+    <details><summary>Posso escolher o estilo?</summary><p>Pode: sertanejo, forró, gospel, MPB, pagode, romântica, infantil e outros.</p></details>
+    <details><summary>Como pago?</summary><p>Pelo Pix. No final do pedido aparece o QR Code e o código "copia e cola" já com o valor. É só pagar pelo app do seu banco.</p></details>
+    <details><summary>Tenho dificuldade com celular, e agora?</summary><p>Sem problema! Toque no botão verde do WhatsApp e a gente faz o pedido junto com você.</p></details>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Faça alguém chorar de alegria neste Natal</h2>
+    <button class="btn" onclick="abrirPedido()">🎁 Quero a minha música</button>
+    <p style="margin-top:14px;color:var(--cinza)">R$ 47 no Pix · pronta em até 3 horas</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>Presente que Canta</b> · Sua história em música</p>
+  <p style="margin-top:6px">Instagram e TikTok: <a href="https://instagram.com/presentequecantaoficial" target="_blank">@presentequecantaoficial</a></p>
+</footer>
+
+<a class="zap" id="zapFlutuante" target="_blank">💬 Dúvidas? WhatsApp</a>
+
+<!-- ============ PEDIDO ============ -->
+<div id="pedido" role="dialog" aria-modal="true">
+  <div class="topo">
+    <button onclick="voltar()" aria-label="Voltar">‹</button>
+    <div class="barra"><i id="barra"></i></div>
+    <small id="passoTxt">1 de 7</small>
+  </div>
+  <div class="wrap">
+
+    <!-- 1 -->
+    <div class="etapa" data-e="1">
+      <h2>Para quem é a música? 🎁</h2>
+      <p class="dica">Esse é o nome que vai ser cantado no refrão.</p>
+      <label class="campo" for="nome_homenageado">Nome da pessoa</label>
+      <input type="text" id="nome_homenageado" maxlength="120" placeholder="Ex.: Maria Helena" autocomplete="off">
+      <label class="campo" for="pronuncia">Como se fala? <span style="font-weight:400">(opcional)</span></label>
+      <input type="text" id="pronuncia" maxlength="120" placeholder="Ex.: Julí-âne" autocomplete="off">
+      <p class="erro" id="erro1">Escreva o nome da pessoa.</p>
+      <div class="acoes"><button class="btn full" onclick="proxima(1)">Continuar →</button></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="etapa" data-e="2">
+      <h2>Quem ela é para você?</h2>
+      <p class="dica">Toque em uma opção.</p>
+      <div class="opcoes" data-campo="relacao">
+        <button class="opcao"><span class="emo">👩</span>Mãe</button><button class="opcao"><span class="emo">👨</span>Pai</button>
+        <button class="opcao"><span class="emo">💑</span>Esposa</button><button class="opcao"><span class="emo">💍</span>Marido</button>
+        <button class="opcao"><span class="emo">❤️</span>Namorado(a)</button><button class="opcao"><span class="emo">👵</span>Avó / Avô</button>
+        <button class="opcao"><span class="emo">👧</span>Filho(a)</button><button class="opcao"><span class="emo">🤝</span>Amigo(a)</button>
+        <button class="opcao"><span class="emo">👫</span>Irmão / Irmã</button><button class="opcao"><span class="emo">✨</span>Outro</button>
+      </div>
+      <p class="erro" id="erro2">Escolha uma opção.</p>
+    </div>
+
+    <!-- 3 -->
+    <div class="etapa" data-e="3">
+      <h2>Qual a ocasião?</h2>
+      <p class="dica">Toque em uma opção.</p>
+      <div class="opcoes" data-campo="ocasiao">
+        <button class="opcao"><span class="emo">🎄</span>Natal</button><button class="opcao"><span class="emo">🎂</span>Aniversário</button>
+        <button class="opcao"><span class="emo">💍</span>Casamento / Bodas</button><button class="opcao"><span class="emo">❤️</span>Declaração de amor</button>
+        <button class="opcao"><span class="emo">🙏</span>Homenagem</button><button class="opcao"><span class="emo">🎁</span>Só porque sim</button>
+      </div>
+      <p class="erro" id="erro3">Escolha uma opção.</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="etapa" data-e="4">
+      <h2>Qual estilo de música?</h2>
+      <p class="dica">Pense no que a pessoa gosta de ouvir.</p>
+      <div class="opcoes" data-campo="estilo">
+        <button class="opcao"><span class="emo">🤠</span>Sertanejo</button><button class="opcao"><span class="emo">🪗</span>Forró</button>
+        <button class="opcao"><span class="emo">🙏</span>Gospel</button><button class="opcao"><span class="emo">🎸</span>MPB</button>
+        <button class="opcao"><span class="emo">🥁</span>Pagode</button><button class="opcao"><span class="emo">🌹</span>Romântica</button>
+        <button class="opcao"><span class="emo">🌴</span>Brega / Arrocha</button><button class="opcao"><span class="emo">🧸</span>Infantil</button>
+      </div>
+      <label class="campo">Voz de quem canta</label>
+      <div class="opcoes" data-campo="voz" data-multi="nao-avanca">
+        <button class="opcao">Masculina</button><button class="opcao">Feminina</button>
+      </div>
+      <p class="erro" id="erro4">Escolha o estilo e a voz.</p>
+      <div class="acoes"><button class="btn full" onclick="proxima(4)">Continuar →</button></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="etapa" data-e="5">
+      <h2>Conte a história 💛</h2>
+      <p class="dica">Quanto mais detalhes, mais emocionante fica. Pode escrever do seu jeito, sem se preocupar com português.</p>
+      <ul style="color:var(--cinza);margin:0 0 14px 22px;font-size:16px">
+        <li>Como ela é? (jeito, manias, o que ela mais gosta)</li>
+        <li>2 ou 3 lembranças marcantes de vocês</li>
+        <li>Apelidos, lugares, datas especiais</li>
+      </ul>
+      <textarea id="historia" maxlength="3000" placeholder="Ex.: Minha mãe criou 4 filhos sozinha, sempre com um sorriso. Faz o melhor bolo de fubá do mundo e canta na cozinha. Lembro dela me levando na escola de bicicleta..."></textarea>
+      <label class="campo" for="mensagem_final">Uma frase que não pode faltar <span style="font-weight:400">(opcional)</span></label>
+      <input type="text" id="mensagem_final" maxlength="500" placeholder="Ex.: Você é o meu maior presente">
+      <p class="erro" id="erro5">Conte um pouquinho mais (pelo menos 2 linhas).</p>
+      <div class="acoes"><button class="btn full" onclick="proxima(5)">Continuar →</button></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="etapa" data-e="6">
+      <h2>Para onde enviamos? 📲</h2>
+      <p class="dica">A música pronta chega neste WhatsApp.</p>
+      <label class="campo" for="nome_cliente">Seu nome</label>
+      <input type="text" id="nome_cliente" maxlength="120" placeholder="Seu nome" autocomplete="name">
+      <label class="campo" for="whatsapp_cliente">Seu WhatsApp com DDD</label>
+      <input type="tel" id="whatsapp_cliente" maxlength="16" placeholder="(91) 99999-9999" inputmode="numeric" autocomplete="tel">
+      <p class="erro" id="erro6">Preencha seu nome e um WhatsApp válido com DDD.</p>
+      <div class="acoes"><button class="btn full" onclick="proxima(6)">Ver resumo →</button></div>
+    </div>
+
+    <!-- 7 -->
+    <div class="etapa" data-e="7">
+      <h2>Confira seu pedido</h2>
+      <p class="dica">Está tudo certo?</p>
+      <div class="resumo" id="resumo"></div>
+      <div class="total"><span>Total no Pix</span><span>R$ 47,00</span></div>
+      <p class="erro" id="erro7">Não conseguimos registrar o pedido. Verifique sua internet e tente de novo, ou chame no WhatsApp.</p>
+      <div class="acoes"><button class="btn full" id="btnConfirmar" onclick="confirmar()">✅ Confirmar e pagar no Pix</button></div>
+    </div>
+
+    <!-- 8: PIX -->
+    <div class="etapa pix" data-e="8">
+      <h2 style="text-align:center">Falta só o Pix! 🎉</h2>
+      <p>Pedido</p>
+      <span class="codigo" id="codigoPedido"></span>
+      <div><div id="qrcode"></div></div>
+      <p style="font-weight:700;color:var(--vinho);margin-bottom:8px">Ou use o Pix Copia e Cola:</p>
+      <textarea class="copia" id="pixCopia" readonly></textarea>
+      <p class="ok" id="copiado">✅ Código copiado! Agora abra o app do seu banco.</p>
+      <button class="btn full" onclick="copiarPix()">📋 Copiar código Pix</button>
+      <ol class="passos-pix">
+        <li>Abra o app do seu banco e entre em <b>Pix</b></li>
+        <li>Escolha <b>"Pix Copia e Cola"</b> (ou leia o QR Code)</li>
+        <li>Cole o código e confirme o pagamento de <b>R$ 47,00</b></li>
+        <li id="liComprovante" style="display:none">Toque no botão verde abaixo e envie o comprovante</li>
+      </ol>
+      <div class="aguarda" id="aguarda"><span class="spin"></span> Aguardando o pagamento… esta tela atualiza sozinha</div>
+      <a class="btn verde full" id="btnComprovante" target="_blank" style="display:none">📲 Já paguei: enviar comprovante</a>
+      <p style="margin-top:16px;color:var(--cinza);font-size:16px">Sua música chega no WhatsApp em até 3 horas após a confirmação do pagamento. 💛</p>
+    </div>
+
+    <div class="etapa sucesso" data-e="9">
+      <div class="big">🎉</div>
+      <h2 style="text-align:center">Pagamento confirmado!</h2>
+      <p style="margin:14px 0 6px">Pedido <b id="codigoOk"></b></p>
+      <p style="font-size:20px">Sua música para <b id="nomeOk"></b> já está sendo feita e chega no seu WhatsApp <b>em até 3 horas</b>. 💛</p>
+      <p style="margin-top:18px;color:var(--cinza)">Pode fechar esta página. Não precisa enviar comprovante.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ================= CONFIGURAÇÃO ================= */
+const CONFIG = {
+  PIX_CHAVE:  "05885497389",          // chave Pix (CPF, CNPJ, e-mail, celular +55... ou aleatória)
+  PIX_NOME:   "Caio Albuquerque",          // nome do titular, até 25 letras
+  PIX_CIDADE: "Brasilia",          // cidade do titular, até 15 letras
+  WHATSAPP:   "5561986536951",      // número da marca com 55 + DDD, só números
+  VALOR:      47.00,
+  AMOSTRA_URL: "",                  // link de um .mp3 de exemplo (deixe vazio para esconder)
+  AMOSTRA_TITULO: "",
+  SUPABASE_URL: "https://owvkofswtkfhlcoyzjpq.supabase.co",
+  SUPABASE_KEY: "sb_publishable_bhAVCPIX1jpW3KD5y6SgyA_qdmXc2Cb"
+};
+/* ================================================ */
+
+const TOTAL = 7;
+let etapa = 1;
+const dados = {relacao:"",ocasiao:"",estilo:"",voz:""};
+
+// WhatsApp flutuante
+document.getElementById("zapFlutuante").href =
+  "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent("Olá! Quero fazer uma música de presente 🎁");
+
+// Amostra
+if (CONFIG.AMOSTRA_URL) {
+  document.getElementById("secAmostra").style.display = "block";
+  document.getElementById("amostraAudio").src = CONFIG.AMOSTRA_URL;
+  document.getElementById("amostraTitulo").textContent = CONFIG.AMOSTRA_TITULO;
+}
+
+function abrirPedido(){
+  document.getElementById("pedido").classList.add("aberto");
+  document.body.style.overflow = "hidden";
+  mostrar(etapa);
+}
+function fecharPedido(){
+  document.getElementById("pedido").classList.remove("aberto");
+  document.body.style.overflow = "";
+}
+function mostrar(n){
+  etapa = n;
+  document.querySelectorAll(".etapa").forEach(e => e.classList.toggle("ativa", +e.dataset.e === n));
+  const p = Math.min(n, TOTAL);
+  document.getElementById("barra").style.width = (n > TOTAL ? 100 : (p-1)/TOTAL*100 + 100/TOTAL/2) + "%";
+  document.getElementById("passoTxt").textContent = n === 9 ? "Confirmado ✅" : n > TOTAL ? "Pagamento" : p + " de " + TOTAL;
+  document.getElementById("pedido").scrollTop = 0;
+  const foco = document.querySelector('.etapa.ativa input, .etapa.ativa textarea:not([readonly])');
+  if (foco && window.innerWidth > 700) foco.focus();
+}
+function voltar(){
+  if (etapa === 1 || etapa >= 8) return fecharPedido();
+  mostrar(etapa - 1);
+}
+function erro(n, mostra){ document.getElementById("erro"+n).style.display = mostra ? "block" : "none"; }
+const val = id => document.getElementById(id).value.trim();
+
+// Botões de opção
+document.querySelectorAll(".opcoes").forEach(grupo => {
+  grupo.querySelectorAll(".opcao").forEach(b => b.addEventListener("click", () => {
+    grupo.querySelectorAll(".opcao").forEach(x => x.classList.remove("sel"));
+    b.classList.add("sel");
+    // grupos de escolha única que avançam sozinhos
+    const e = +grupo.closest(".etapa").dataset.e;
+    if (e === 2 || e === 3) { erro(e,false); setTimeout(() => mostrar(e+1), 220); }
+  }));
+});
+// texto limpo (sem emoji) das opções
+document.querySelectorAll(".opcao").forEach(b => {
+  const emo = b.querySelector(".emo");
+  b.dataset.v = (emo ? b.textContent.replace(emo.textContent, "") : b.textContent).trim();
+  b.addEventListener("click", () => { dados[b.parentElement.dataset.campo] = b.dataset.v; });
+});
+
+// Máscara do WhatsApp
+document.getElementById("whatsapp_cliente").addEventListener("input", e => {
+  let d = e.target.value.replace(/\D/g,"").slice(0,11);
+  if (d.length > 6) e.target.value = `(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`;
+  else if (d.length > 2) e.target.value = `(${d.slice(0,2)}) ${d.slice(2)}`;
+  else e.target.value = d;
+});
+
+function proxima(n){
+  let ok = true;
+  if (n === 1) ok = val("nome_homenageado").length >= 2;
+  if (n === 4) ok = !!dados.estilo && !!dados.voz;
+  if (n === 5) ok = val("historia").length >= 40;
+  if (n === 6) ok = val("nome_cliente").length >= 2 && val("whatsapp_cliente").replace(/\D/g,"").length >= 10;
+  erro(n, !ok);
+  if (!ok) return;
+  if (n === 6) montarResumo();
+  mostrar(n + 1);
+}
+
+function esc(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function montarResumo(){
+  const linhas = [
+    ["Para", val("nome_homenageado") + (val("pronuncia") ? ` (fala-se: ${val("pronuncia")})` : "")],
+    ["Quem é", dados.relacao], ["Ocasião", dados.ocasiao],
+    ["Estilo", dados.estilo + " · voz " + dados.voz.toLowerCase()],
+    ["História", val("historia").slice(0,160) + (val("historia").length > 160 ? "…" : "")],
+    ["Entregar para", val("nome_cliente") + " · " + val("whatsapp_cliente")]
+  ];
+  document.getElementById("resumo").innerHTML = linhas.map(([k,v]) => `<div><b>${k}</b>${esc(v)}</div>`).join("");
+}
+
+function gerarCodigo(){
+  const c = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; let s = "PQC";
+  const r = crypto.getRandomValues(new Uint8Array(6));
+  for (const x of r) s += c[x % c.length];
+  return s;
+}
+
+const FN = CONFIG.SUPABASE_URL + "/functions/v1/pqc-pagamento";
+let timer = null;
+
+function dadosPedido(){
+  return {
+    nome_cliente: val("nome_cliente"), whatsapp_cliente: val("whatsapp_cliente").replace(/\D/g,""),
+    nome_homenageado: val("nome_homenageado"), pronuncia: val("pronuncia") || null,
+    relacao: dados.relacao, ocasiao: dados.ocasiao, estilo: dados.estilo, voz: dados.voz,
+    historia: val("historia"), mensagem_final: val("mensagem_final") || null
+  };
+}
+
+async function confirmar(){
+  const btn = document.getElementById("btnConfirmar");
+  btn.disabled = true; btn.textContent = "Gerando seu Pix…"; erro(7,false);
+  try {
+    const r = await fetch(FN, { method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ acao:"criar", ...dadosPedido() }) });
+    const j = await r.json();
+    if (!r.ok || !j.qr_code) throw new Error(j.erro || "falha");
+    mostrarPixAuto(j.codigo, j.qr_code);
+  } catch(e) {
+    console.warn("Pix automático indisponível, usando Pix simples", e);
+    await confirmarSimples(btn);
+  }
+}
+
+function desenharPix(codigo, payload){
+  document.getElementById("codigoPedido").textContent = codigo;
+  document.getElementById("pixCopia").value = payload;
+  const box = document.getElementById("qrcode"); box.innerHTML = "";
+  const qr = qrcode(0, "M"); qr.addData(payload); qr.make(); box.innerHTML = qr.createSvgTag({cellSize:5, margin:2, scalable:false});
+}
+
+function mostrarPixAuto(codigo, payload){
+  desenharPix(codigo, payload);
+  document.getElementById("aguarda").style.display = "flex";
+  document.getElementById("btnComprovante").style.display = "none";
+  document.getElementById("liComprovante").style.display = "none";
+  mostrar(8);
+  clearInterval(timer);
+  const ini = Date.now();
+  timer = setInterval(async () => {
+    if (Date.now() - ini > 70*60000) return clearInterval(timer);
+    try {
+      const r = await fetch(FN + "?codigo=" + encodeURIComponent(codigo));
+      const j = await r.json();
+      if (j.status === "pago" || j.status === "entregue" || j.status === "em_producao") {
+        clearInterval(timer);
+        document.getElementById("codigoOk").textContent = codigo;
+        document.getElementById("nomeOk").textContent = val("nome_homenageado");
+        mostrar(9);
+      }
+    } catch(e) {}
+  }, 4000);
+}
+
+// Plano B: Pix simples com comprovante (se o automático falhar)
+async function confirmarSimples(btn){
+  const codigo = gerarCodigo();
+  const pedido = { codigo, produto:"musica", valor: CONFIG.VALOR, status:"aguardando_pagamento", ...dadosPedido() };
+  try {
+    const r = await fetch(CONFIG.SUPABASE_URL + "/rest/v1/pqc_pedidos", {
+      method:"POST",
+      headers:{ "apikey":CONFIG.SUPABASE_KEY, "Content-Type":"application/json", "Prefer":"return=minimal" },
+      body: JSON.stringify(pedido)
+    });
+    if (!r.ok) throw new Error(await r.text());
+    mostrarPix(codigo);
+  } catch(e) {
+    console.error(e); erro(7,true);
+    btn.disabled = false; btn.textContent = "✅ Confirmar e pagar no Pix";
+  }
+}
+
+function semAcento(s){ return s.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^A-Za-z0-9 ]/g,"").toUpperCase(); }
+function campo(id, v){ return id + String(v.length).padStart(2,"0") + v; }
+function crc16(str){
+  let crc = 0xFFFF;
+  for (let i=0;i<str.length;i++){
+    crc ^= str.charCodeAt(i) << 8;
+    for (let j=0;j<8;j++) crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) & 0xFFFF : (crc << 1) & 0xFFFF;
+  }
+  return crc.toString(16).toUpperCase().padStart(4,"0");
+}
+function pixPayload(txid){
+  const conta = campo("00","br.gov.bcb.pix") + campo("01", CONFIG.PIX_CHAVE.trim());
+  let p = campo("00","01") + campo("26",conta) + campo("52","0000") + campo("53","986")
+        + campo("54", CONFIG.VALOR.toFixed(2)) + campo("58","BR")
+        + campo("59", semAcento(CONFIG.PIX_NOME).slice(0,25))
+        + campo("60", semAcento(CONFIG.PIX_CIDADE).slice(0,15))
+        + campo("62", campo("05", txid)) + "6304";
+  return p + crc16(p);
+}
+function mostrarPix(codigo){
+  const payload = pixPayload(codigo);
+  document.getElementById("codigoPedido").textContent = codigo;
+  document.getElementById("pixCopia").value = payload;
+  desenharPix(codigo, payload);
+  document.getElementById("aguarda").style.display = "none";
+  document.getElementById("btnComprovante").style.display = "flex";
+  document.getElementById("liComprovante").style.display = "list-item";
+  const msg = `Olá! Acabei de pagar o pedido *${codigo}* (música para ${val("nome_homenageado")}). Segue o comprovante 👇`;
+  document.getElementById("btnComprovante").href = "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(msg);
+  mostrar(8);
+}
+async function copiarPix(){
+  const t = document.getElementById("pixCopia");
+  try { await navigator.clipboard.writeText(t.value); } catch(e){ t.select(); document.execCommand("copy"); }
+  document.getElementById("copiado").style.display = "block";
+}
+</script>
+</body>
+</html>
