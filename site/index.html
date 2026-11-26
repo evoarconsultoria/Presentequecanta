@@ -115,6 +115,8 @@ textarea{min-height:200px;resize:vertical}
 @keyframes gira{to{transform:rotate(360deg)}}
 .sucesso{text-align:center;padding-top:40px}
 .sucesso .big{font-size:72px;margin-bottom:10px}
+#pedido .opcoes .opcao{padding:10px 8px;min-height:0;font-size:16px}
+#pedido .opcoes .opcao .emo{display:inline;font-size:18px;margin-right:4px}
 </style>
 </head>
 <body>
@@ -388,7 +390,7 @@ function voltar(){
   mostrar(etapa - 1);
 }
 function erro(n, mostra){ document.getElementById("erro"+n).style.display = mostra ? "block" : "none"; }
-const val = id => document.getElementById(id).value.trim();
+const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
 
 // Botões de opção
 document.querySelectorAll(".opcoes").forEach(grupo => {
