@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Presente que Canta · Música personalizada com o nome de quem você ama</title>
-<meta name="description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 47 no Pix.">
+<meta name="description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 29,90 no Pix.">
 <meta property="og:title" content="Presente que Canta 🎁🎶">
-<meta property="og:description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 47 no Pix.">
+<meta property="og:description" content="Uma música com o nome e a história de quem você ama. Pronta em até 3 horas. R$ 29,90 no Pix.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,7 +139,11 @@ textarea{min-height:200px;resize:vertical}
       <span class="selo">💛 Com o nome da pessoa</span>
     </div>
     <button class="btn" onclick="abrirPedido()">🎁 Quero a minha música</button>
-    <p class="preco">De <s>R$ 147</s> por apenas <b>R$ 47 no Pix</b> · preço de Natal</p>
+    <p class="preco">De <s>R$ 97</s> por apenas <b>R$ 29,90 no Pix</b> · preço de Natal</p>
+    <div style="margin:22px auto 0;max-width:420px;background:rgba(255,244,230,.12);border-radius:16px;padding:12px 14px">
+      <p style="margin:0 0 8px;font-size:16px">▶️ Ouça um exemplo: <b>"Ô Seu José"</b>, feita para um pai</p>
+      <audio controls preload="none" style="width:100%" src="https://cdn.jsdelivr.net/gh/evoarconsultoria/presentequecanta@main/midia/amostras/jose.mp3"></audio>
+    </div>
   </div>
 </header>
 
@@ -148,7 +152,7 @@ textarea{min-height:200px;resize:vertical}
     <h2>Como funciona</h2>
     <div class="passos">
       <div class="passo"><b class="n">1</b><div><h3>Conte a história</h3><p>Diga o nome da pessoa, o estilo de música que ela gosta e algumas lembranças marcantes. Leva 3 minutinhos.</p></div></div>
-      <div class="passo"><b class="n">2</b><div><h3>Pague no Pix</h3><p>R$ 47, direto pelo app do seu banco. Rápido e seguro.</p></div></div>
+      <div class="passo"><b class="n">2</b><div><h3>Pague no Pix</h3><p>R$ 29,90, direto pelo app do seu banco. Rápido e seguro.</p></div></div>
       <div class="passo"><b class="n">3</b><div><h3>Receba no WhatsApp</h3><p>Em até 3 horas a música chega pronta no seu WhatsApp, para você mostrar, enviar ou tocar na hora do presente.</p></div></div>
     </div>
   </div>
@@ -201,7 +205,7 @@ textarea{min-height:200px;resize:vertical}
   <div class="wrap" style="text-align:center;max-width:680px;margin:0 auto;padding:0 20px">
   <h2>🎅 Tirou alguém no amigo secreto?</h2>
   <p style="font-size:19px;margin-bottom:10px">Revele seu amigo secreto com uma música zoando ele. As manias, os apelidos, aquela história que todo mundo lembra, tudo no refrão. A galera vai rir até chorar.</p>
-  <p style="color:var(--cinza);margin-bottom:22px">Zoeira do bem: sem ofensa, sem exposição. Só risada. Mesmo preço: R$ 47, pronta em até 3 horas.</p>
+  <p style="color:var(--cinza);margin-bottom:22px">Zoeira do bem: sem ofensa, sem exposição. Só risada. Mesmo preço: R$ 29,90, pronta em até 3 horas.</p>
   <button class="btn" onclick="pedirZoeira()">Quero revelar com música 😂</button>
   </div>
 </section>
@@ -209,7 +213,7 @@ textarea{min-height:200px;resize:vertical}
   <div class="wrap">
     <h2>Faça alguém chorar de alegria neste Natal</h2>
     <button class="btn" onclick="abrirPedido()">🎁 Quero a minha música</button>
-    <p style="margin-top:14px;color:var(--cinza)">R$ 47 no Pix · pronta em até 3 horas</p>
+    <p style="margin-top:14px;color:var(--cinza)">R$ 29,90 no Pix · pronta em até 3 horas</p>
   </div>
 </section>
 
@@ -225,103 +229,61 @@ textarea{min-height:200px;resize:vertical}
   <div class="topo">
     <button onclick="voltar()" aria-label="Voltar">‹</button>
     <div class="barra"><i id="barra"></i></div>
-    <small id="passoTxt">1 de 7</small>
+    <small id="passoTxt">1 de 3</small>
   </div>
   <div class="wrap">
 
     <!-- 1 -->
     <div class="etapa" data-e="1">
       <h2>Para quem é a música? 🎁</h2>
-      <p class="dica">Esse é o nome que vai ser cantado no refrão.</p>
+      <p class="dica">Esse nome vai ser cantado no refrão.</p>
       <label class="campo" for="nome_homenageado">Nome da pessoa</label>
       <input type="text" id="nome_homenageado" maxlength="120" placeholder="Ex.: Maria Helena" autocomplete="off">
-      <label class="campo" for="pronuncia">Como se fala? <span style="font-weight:400">(opcional)</span></label>
-      <input type="text" id="pronuncia" maxlength="120" placeholder="Ex.: Julí-âne" autocomplete="off">
-      <p class="erro" id="erro1">Escreva o nome da pessoa.</p>
+      <input type="text" id="pronuncia" maxlength="120" placeholder="Como se fala? (opcional)" autocomplete="off" style="margin-top:10px">
+      <label class="campo">Quem ela é para você?</label>
+      <div class="opcoes" data-campo="relacao">
+        <button class="opcao"><span class="emo">👩</span>Mãe</button><button class="opcao"><span class="emo">👨</span>Pai</button>
+        <button class="opcao"><span class="emo">💑</span>Esposa</button><button class="opcao"><span class="emo">💍</span>Marido</button>
+        <button class="opcao"><span class="emo">👵</span>Avó / Avô</button><button class="opcao"><span class="emo">❤️</span>Namorado(a)</button>
+        <button class="opcao"><span class="emo">👧</span>Filho(a)</button><button class="opcao"><span class="emo">🤝</span>Amigo(a)</button>
+        <button class="opcao"><span class="emo">💼</span>Colega</button><button class="opcao"><span class="emo">✨</span>Outro</button>
+      </div>
+      <p class="erro" id="erro1">Escreva o nome e toque em quem ela é para você.</p>
       <div class="acoes"><button class="btn full" onclick="proxima(1)">Continuar →</button></div>
     </div>
 
     <!-- 2 -->
     <div class="etapa" data-e="2">
-      <h2>Quem ela é para você?</h2>
-      <p class="dica">Toque em uma opção.</p>
-      <div class="opcoes" data-campo="relacao">
-        <button class="opcao"><span class="emo">👩</span>Mãe</button><button class="opcao"><span class="emo">👨</span>Pai</button>
-        <button class="opcao"><span class="emo">💑</span>Esposa</button><button class="opcao"><span class="emo">💍</span>Marido</button>
-        <button class="opcao"><span class="emo">❤️</span>Namorado(a)</button><button class="opcao"><span class="emo">👵</span>Avó / Avô</button>
-        <button class="opcao"><span class="emo">👧</span>Filho(a)</button><button class="opcao"><span class="emo">🤝</span>Amigo(a)</button><button class="opcao"><span class="emo">💼</span>Colega de trabalho</button>
-        <button class="opcao"><span class="emo">👫</span>Irmão / Irmã</button><button class="opcao"><span class="emo">✨</span>Outro</button>
+      <h2>Como vai ser a música? 🎶</h2>
+      <div class="opcoes" data-campo="estilo">
+        <button class="opcao"><span class="emo">🤠</span>Sertanejo</button><button class="opcao"><span class="emo">🪗</span>Forró</button>
+        <button class="opcao"><span class="emo">🙏</span>Gospel</button><button class="opcao"><span class="emo">🌹</span>Romântica</button>
+        <button class="opcao"><span class="emo">🥁</span>Pagode</button><button class="opcao"><span class="emo">🎸</span>MPB</button>
+        <button class="opcao"><span class="emo">🌴</span>Brega / Arrocha</button><button class="opcao"><span class="emo">😂</span>Zoeira / Humor</button>
       </div>
-      <p class="erro" id="erro2">Escolha uma opção.</p>
+      <div class="opcoes" data-campo="voz" style="margin-top:10px">
+        <button class="opcao">🎤 Voz masculina</button><button class="opcao">🎤 Voz feminina</button>
+      </div>
+      <label class="campo" for="historia">Conte um pouco sobre ela 💛</label>
+      <textarea id="historia" maxlength="3000" style="min-height:120px" placeholder="Ex.: Minha mãe criou 4 filhos sozinha, faz o melhor bolo de fubá e canta na cozinha."></textarea>
+      <p class="dica" style="margin:6px 0 0;font-size:15px">Jeito, manias, uma lembrança. Pode ser curtinho, a gente capricha no resto.</p>
+      <p class="erro" id="erro2">Escolha o estilo, a voz e escreva pelo menos uma frase sobre ela.</p>
+      <div class="acoes"><button class="btn full" onclick="proxima(2)">Continuar →</button></div>
     </div>
 
     <!-- 3 -->
     <div class="etapa" data-e="3">
-      <h2>Qual a ocasião?</h2>
-      <p class="dica">Toque em uma opção.</p>
-      <div class="opcoes" data-campo="ocasiao">
-        <button class="opcao"><span class="emo">🎄</span>Natal</button><button class="opcao"><span class="emo">🎅</span>Amigo secreto (zoeira)</button>
-        <button class="opcao"><span class="emo">🎂</span>Aniversário</button>
-        <button class="opcao"><span class="emo">💍</span>Casamento / Bodas</button><button class="opcao"><span class="emo">❤️</span>Declaração de amor</button>
-        <button class="opcao"><span class="emo">🙏</span>Homenagem</button><button class="opcao"><span class="emo">🎁</span>Só porque sim</button>
-      </div>
-      <p class="erro" id="erro3">Escolha uma opção.</p>
-    </div>
-
-    <!-- 4 -->
-    <div class="etapa" data-e="4">
-      <h2>Qual estilo de música?</h2>
-      <p class="dica">Pense no que a pessoa gosta de ouvir.</p>
-      <div class="opcoes" data-campo="estilo">
-        <button class="opcao"><span class="emo">🤠</span>Sertanejo</button><button class="opcao"><span class="emo">🪗</span>Forró</button>
-        <button class="opcao"><span class="emo">🙏</span>Gospel</button><button class="opcao"><span class="emo">🎸</span>MPB</button>
-        <button class="opcao"><span class="emo">🥁</span>Pagode</button><button class="opcao"><span class="emo">🌹</span>Romântica</button>
-        <button class="opcao"><span class="emo">🌴</span>Brega / Arrocha</button><button class="opcao"><span class="emo">🧸</span>Infantil</button><button class="opcao"><span class="emo">😂</span>Zoeira / Humor</button>
-      </div>
-      <label class="campo">Voz de quem canta</label>
-      <div class="opcoes" data-campo="voz" data-multi="nao-avanca">
-        <button class="opcao">Masculina</button><button class="opcao">Feminina</button>
-      </div>
-      <p class="erro" id="erro4">Escolha o estilo e a voz.</p>
-      <div class="acoes"><button class="btn full" onclick="proxima(4)">Continuar →</button></div>
-    </div>
-
-    <!-- 5 -->
-    <div class="etapa" data-e="5">
-      <h2>Conte a história 💛</h2>
-      <p class="dica">Quanto mais detalhes, mais emocionante fica. Pode escrever do seu jeito, sem se preocupar com português.</p>
-      <ul style="color:var(--cinza);margin:0 0 14px 22px;font-size:16px">
-        <li>Como ela é? (jeito, manias, o que ela mais gosta)</li>
-        <li>2 ou 3 lembranças marcantes de vocês</li>
-        <li>Apelidos, lugares, datas especiais</li>
-      </ul>
-      <textarea id="historia" maxlength="3000" placeholder="Ex.: Minha mãe criou 4 filhos sozinha, sempre com um sorriso. Faz o melhor bolo de fubá do mundo e canta na cozinha. Lembro dela me levando na escola de bicicleta..."></textarea>
-      <label class="campo" for="mensagem_final">Uma frase que não pode faltar <span style="font-weight:400">(opcional)</span></label>
-      <input type="text" id="mensagem_final" maxlength="500" placeholder="Ex.: Você é o meu maior presente">
-      <p class="erro" id="erro5">Conte um pouquinho mais (pelo menos 2 linhas).</p>
-      <div class="acoes"><button class="btn full" onclick="proxima(5)">Continuar →</button></div>
-    </div>
-
-    <!-- 6 -->
-    <div class="etapa" data-e="6">
       <h2>Para onde enviamos? 📲</h2>
-      <p class="dica">A música pronta chega neste WhatsApp.</p>
+      <p class="dica">A música pronta chega neste WhatsApp em até 3 horas.</p>
       <label class="campo" for="nome_cliente">Seu nome</label>
       <input type="text" id="nome_cliente" maxlength="120" placeholder="Seu nome" autocomplete="name">
       <label class="campo" for="whatsapp_cliente">Seu WhatsApp com DDD</label>
       <input type="tel" id="whatsapp_cliente" maxlength="16" placeholder="(91) 99999-9999" inputmode="numeric" autocomplete="tel">
-      <p class="erro" id="erro6">Preencha seu nome e um WhatsApp válido com DDD.</p>
-      <div class="acoes"><button class="btn full" onclick="proxima(6)">Ver resumo →</button></div>
-    </div>
-
-    <!-- 7 -->
-    <div class="etapa" data-e="7">
-      <h2>Confira seu pedido</h2>
-      <p class="dica">Está tudo certo?</p>
-      <div class="resumo" id="resumo"></div>
-      <div class="total"><span>Total no Pix</span><span>R$ 47,00</span></div>
-      <p class="erro" id="erro7">Não conseguimos registrar o pedido. Verifique sua internet e tente de novo, ou chame no WhatsApp.</p>
-      <div class="acoes"><button class="btn full" id="btnConfirmar" onclick="confirmar()">✅ Confirmar e pagar no Pix</button></div>
+      <div class="total" style="margin-top:20px"><span>Total no Pix</span><span>R$ 29,90</span></div>
+      <p class="erro" id="erro3">Preencha seu nome e um WhatsApp válido com DDD.</p>
+      <p class="erro" id="erro7">Não conseguimos gerar o Pix. Verifique sua internet e tente de novo, ou chame no WhatsApp.</p>
+      <div class="acoes"><button class="btn full" id="btnConfirmar" onclick="proxima(3)">✅ Gerar meu Pix</button></div>
+      <p style="text-align:center;margin-top:12px;color:var(--cinza);font-size:15px">🔒 Pix pelo Mercado Pago · se não gostar de algum detalhe, ajustamos sem custo</p>
     </div>
 
     <!-- 8: PIX -->
@@ -337,7 +299,7 @@ textarea{min-height:200px;resize:vertical}
       <ol class="passos-pix">
         <li>Abra o app do seu banco e entre em <b>Pix</b></li>
         <li>Escolha <b>"Pix Copia e Cola"</b> (ou leia o QR Code)</li>
-        <li>Cole o código e confirme o pagamento de <b>R$ 47,00</b></li>
+        <li>Cole o código e confirme o pagamento de <b>R$ 29,90</b></li>
         <li id="liComprovante" style="display:none">Toque no botão verde abaixo e envie o comprovante</li>
       </ol>
       <div class="aguarda" id="aguarda"><span class="spin"></span> Aguardando o pagamento… esta tela atualiza sozinha</div>
@@ -363,7 +325,7 @@ const CONFIG = {
   PIX_NOME:   "Caio Albuquerque",          // nome do titular, até 25 letras
   PIX_CIDADE: "Brasilia",          // cidade do titular, até 15 letras
   WHATSAPP:   "5561986536951",      // número da marca com 55 + DDD, só números
-  VALOR:      47.00,
+  VALOR:      29.90,
   AMOSTRA_URL: "",                  // link de um .mp3 de exemplo (deixe vazio para esconder)
   AMOSTRA_TITULO: "",
   SUPABASE_URL: "https://owvkofswtkfhlcoyzjpq.supabase.co",
@@ -371,9 +333,24 @@ const CONFIG = {
 };
 /* ================================================ */
 
-const TOTAL = 7;
+/* ===== Funil: registra visitas e etapas ===== */
+const SESSAO = (()=>{ try{ let x=sessionStorage.getItem("pqc_s"); if(!x){ x=Math.random().toString(36).slice(2,12); sessionStorage.setItem("pqc_s",x);} return x; }catch(e){ return Math.random().toString(36).slice(2,12); } })();
+function rastrear(evento, detalhe){
+  try {
+    fetch(CONFIG.SUPABASE_URL + "/rest/v1/pqc_eventos", { method:"POST", keepalive:true,
+      headers:{ "apikey":CONFIG.SUPABASE_KEY, "Content-Type":"application/json", "Prefer":"return=minimal" },
+      body: JSON.stringify({ sessao:SESSAO, evento, detalhe: detalhe ? String(detalhe).slice(0,200) : null,
+        origem: (location.search + " " + document.referrer).slice(0,300), navegador: navigator.userAgent.slice(0,300) }) });
+  } catch(e) {}
+}
+rastrear("visita");
+let rolou = false;
+window.addEventListener("scroll", () => { if (!rolou && scrollY > innerHeight) { rolou = true; rastrear("rolou_pagina"); } }, {passive:true});
+document.querySelectorAll("audio").forEach(a => a.addEventListener("play", () => rastrear("ouviu_amostra", a.src.split("/").pop()), {once:true}));
+
+const TOTAL = 3;
 let etapa = 1;
-const dados = {relacao:"",ocasiao:"",estilo:"",voz:""};
+const dados = {relacao:"",ocasiao:"Natal",estilo:"",voz:""};
 
 // WhatsApp flutuante
 document.getElementById("zapFlutuante").href =
@@ -387,6 +364,7 @@ if (CONFIG.AMOSTRA_URL) {
 }
 
 function abrirPedido(){
+  rastrear("abriu_pedido");
   document.getElementById("pedido").classList.add("aberto");
   document.body.style.overflow = "hidden";
   mostrar(etapa);
@@ -418,8 +396,6 @@ document.querySelectorAll(".opcoes").forEach(grupo => {
     grupo.querySelectorAll(".opcao").forEach(x => x.classList.remove("sel"));
     b.classList.add("sel");
     // grupos de escolha única que avançam sozinhos
-    const e = +grupo.closest(".etapa").dataset.e;
-    if (e === 2 || e === 3) { erro(e,false); setTimeout(() => mostrar(e+1), 220); }
   }));
 });
 // texto limpo (sem emoji) das opções
@@ -439,13 +415,13 @@ document.getElementById("whatsapp_cliente").addEventListener("input", e => {
 
 function proxima(n){
   let ok = true;
-  if (n === 1) ok = val("nome_homenageado").length >= 2;
-  if (n === 4) ok = !!dados.estilo && !!dados.voz;
-  if (n === 5) ok = val("historia").length >= 40;
-  if (n === 6) ok = val("nome_cliente").length >= 2 && val("whatsapp_cliente").replace(/\D/g,"").length >= 10;
+  if (n === 1) ok = val("nome_homenageado").length >= 2 && !!dados.relacao;
+  if (n === 2) ok = !!dados.estilo && !!dados.voz && val("historia").length >= 10;
+  if (n === 3) ok = val("nome_cliente").length >= 2 && val("whatsapp_cliente").replace(/\D/g,"").length >= 10;
   erro(n, !ok);
-  if (!ok) return;
-  if (n === 6) montarResumo();
+  if (!ok) { rastrear("erro_etapa_"+n); return; }
+  rastrear("concluiu_etapa_"+n);
+  if (n === 3) return confirmar();
   mostrar(n + 1);
 }
 
@@ -475,7 +451,7 @@ function dadosPedido(){
   return {
     nome_cliente: val("nome_cliente"), whatsapp_cliente: val("whatsapp_cliente").replace(/\D/g,""),
     nome_homenageado: val("nome_homenageado"), pronuncia: val("pronuncia") || null,
-    relacao: dados.relacao, ocasiao: dados.ocasiao, estilo: dados.estilo, voz: dados.voz,
+    relacao: dados.relacao, ocasiao: dados.ocasiao || "Natal", estilo: dados.estilo, voz: dados.voz.replace(/^\S+\s*Voz\s*/i,"").replace(/^./,c=>c.toUpperCase()),
     historia: val("historia"), mensagem_final: val("mensagem_final") || null
   };
 }
@@ -488,6 +464,7 @@ async function confirmar(){
       body: JSON.stringify({ acao:"criar", ...dadosPedido() }) });
     const j = await r.json();
     if (!r.ok || !j.qr_code) throw new Error(j.erro || "falha");
+    rastrear("pix_gerado", j.codigo);
     mostrarPixAuto(j.codigo, j.qr_code);
   } catch(e) {
     console.warn("Pix automático indisponível, usando Pix simples", e);
@@ -519,6 +496,7 @@ function mostrarPixAuto(codigo, payload){
         clearInterval(timer);
         document.getElementById("codigoOk").textContent = codigo;
         document.getElementById("nomeOk").textContent = val("nome_homenageado");
+        rastrear("pagou", codigo);
         mostrar(9);
       }
     } catch(e) {}
@@ -539,7 +517,7 @@ async function confirmarSimples(btn){
     mostrarPix(codigo);
   } catch(e) {
     console.error(e); erro(7,true);
-    btn.disabled = false; btn.textContent = "✅ Confirmar e pagar no Pix";
+    btn.disabled = false; btn.textContent = "✅ Gerar meu Pix";
   }
 }
 
@@ -575,6 +553,7 @@ function mostrarPix(codigo){
   mostrar(8);
 }
 async function copiarPix(){
+  rastrear("copiou_pix");
   const t = document.getElementById("pixCopia");
   try { await navigator.clipboard.writeText(t.value); } catch(e){ t.select(); document.execCommand("copy"); }
   document.getElementById("copiado").style.display = "block";
@@ -582,8 +561,9 @@ async function copiarPix(){
 
 function pedirZoeira(){
   abrirPedido();
-  const b=[...document.querySelectorAll('[data-campo="ocasiao"] .opcao')].find(x=>x.dataset.v.startsWith("Amigo secreto"));
-  if(b){ b.parentElement.querySelectorAll(".opcao").forEach(x=>x.classList.remove("sel")); b.classList.add("sel"); dados.ocasiao=b.dataset.v; }
+  dados.ocasiao = "Amigo secreto (zoeira)";
+  const b=[...document.querySelectorAll('[data-campo="estilo"] .opcao')].find(x=>x.dataset.v.startsWith("Zoeira"));
+  if(b){ b.classList.add("sel"); dados.estilo=b.dataset.v; }
 }
 if (location.hash === "#amigosecreto" || /zoeira|amigo/i.test(location.search)) setTimeout(pedirZoeira, 400);
 // história adapta ao modo zoeira
